@@ -34,4 +34,4 @@ Lv 1. 기본 게임 구현 (숫자 야구 게임)
 7. 정답을 맞출때까지 이어지며, 정답을 맞추면 종료 구현(V)
 
 ✴️ 트러블 슈팅
-✴https://nangman99.tistory.com/27
+https://nangman99.tistory.com/27
