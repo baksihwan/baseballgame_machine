@@ -16,7 +16,7 @@ public class BaseballGame {
     }
 
     private String CorrectAnswer() {
-        String number = "369"; //랜덤숫자
+        String number = "369"; //<--랜덤숫자지정
         return number;
     }
 
