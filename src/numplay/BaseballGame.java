@@ -1,30 +1,27 @@
 package numplay;
 
+import java.util.Random;
 import java.util.Scanner;
 
 
 public class BaseballGame {
+    Random random = new Random();
     String answer;
 
     public BaseballGame() {//객체 생성시 정답을 만들도록 함
 
 
-         answer=CorrectAnswer();
-
+        answer = CorrectAnswer();
 
 
     }
 
     private String CorrectAnswer() {
-        String number = "369"; //<--랜덤숫자지정
-        return number;
+        int firstNum=random.nextInt(9)+1;  //1~9까지의 랜덤숫자 기입
+        int secondNum=random.nextInt(9)+1;
+        int thirdNum=random.nextInt(9)+1;
+        return firstNum+""+secondNum+""+thirdNum;
     }
-
-
-
-
-
-
 
 
     public void play() {
@@ -44,7 +41,7 @@ public class BaseballGame {
                 break;
             }
             int ball = countBall(input); //볼 개수 계산
-            BaseballGameDisplay.displayHint(strike,ball);
+            BaseballGameDisplay.displayHint(strike, ball);
 
 
         }
@@ -52,11 +49,16 @@ public class BaseballGame {
 
     }
 
-    protected boolean validateInput(String input) {    //검증입력값
-        if (input.length() != 3) {
+    protected boolean validateInput(String input) {    //숫자 입력값 검증
+        if (input.length() != 3) {     //숫자 갯수 오류 검증
             System.out.println("숫자 갯수 오류입니다.");
             return false;
 
+        }if(input.charAt(0)==input.charAt(1)   // 숫자 중복 오류 검증
+                || input.charAt(1)==input.charAt(2)
+                ||input.charAt(2)== input.charAt(0)){
+            System.out.println("중복 숫자 오류입니다!");
+            return false;
         }
         return true;
 
@@ -67,28 +69,28 @@ public class BaseballGame {
     private int countStrike(String input) {
         int strike = 0;
         for (int i = 0; i < answer.length(); i++) {
-            if(input.charAt(i) == answer.charAt(i)) {
+            if (input.charAt(i) == answer.charAt(i)) {
                 strike++;
             }
 
-            }
+        }
         return strike;
 
     }
-
 
 
     //볼 갯수
     private int countBall(String input) {
         int ball = 0;
         for (int i = 0; i < 3; i++) {
-            if(input.charAt(i) !=answer.charAt(i)
-                    && answer.contains(String.valueOf(input.charAt(i)))){
+            if (input.charAt(i) != answer.charAt(i)
+                    && answer.contains(String.valueOf(input.charAt(i)))) {
                 ball++;
             }
-            }
-        return ball;
+        }
+
+            return ball;
+        }
     }
-}
 
 
