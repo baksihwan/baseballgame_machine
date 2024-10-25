@@ -1,12 +1,16 @@
 package numplay;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class BaseballGame {
-    Random random = new Random();
+    Random random = new Random(); //랜덤 객체 생성
     String answer;
+
+
+
+
+
 
     public BaseballGame() {//객체 생성시 정답을 만들도록 함
 
@@ -17,11 +21,13 @@ public class BaseballGame {
     }
 
     private String CorrectAnswer() {
-        int firstNum=random.nextInt(9)+1;  //1~9까지의 랜덤숫자 기입
-        int secondNum=random.nextInt(9)+1;
-        int thirdNum=random.nextInt(9)+1;
-        return firstNum+""+secondNum+""+thirdNum;
+
+        int firstNum = random.nextInt(9) + 1;  //1~9까지의 랜덤숫자 기입
+        int secondNum = random.nextInt(9) + 1;
+        int thirdNum = random.nextInt(9) + 1;
+        return firstNum + "" + secondNum + "" + thirdNum + "";
     }
+
 
 
     public void play() {
@@ -42,6 +48,7 @@ public class BaseballGame {
             }
             int ball = countBall(input); //볼 개수 계산
             BaseballGameDisplay.displayHint(strike, ball);
+
 
 
         }
